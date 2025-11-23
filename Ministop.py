@@ -1,17 +1,17 @@
-#Danh sách của 3 phần món chính, snack và nước uống -> Cấu trúc list được sử dụng để có thể dễ dàng thêm/xóa mặt hàng
+#Food list (List is chosen so that things can be changed easier
 main_food = ["Bánh tacos", "Pizza", "Mì lẩu", "Bánh bao", "Xíu mại"]
 light_snack = ["Bò lá lốt", "Phô mai que", "Cá viên", "Tôm chiên", "Lạp xưởng nướng đá"]
 drink = ["Nước suối", "Coca", "Pepsi", "Strongbold", "Fanta", "Soda"]
 
-#Định giá kiểu dictionary của các mặt hàng để phục vụ cho việc tính toán
+#Pricing (Dictionary is used to help with the calculation)
 price = {"Bánh tacos" : 30000, "Pizza" : 30000, "Mì lẩu" : 32000, "Bánh bao" : 25000, "Xíu mại" : 23000,
          "Bò lá lốt" : 10000, "Phô mai que" : 12000, "Cá viên" : 8000, "Tôm chiên" : 12000, "Lạp xưởng nướng đá" : 15000,
          "Nước suối" : 6000, "Coca" : 9000, "Pepsi" : 9000, "Strongbold" : 15000, "Fanta" : 9000, "Soda" : 11000}
 
-#Hóa đơn kiểu dictionary để phục vụ cho việc tính toán và in hóa đơn
+#Bill with Dictionary type to print out bill format
 bill = {}
 
-#Hàm xử lý món chính
+#Handling food
 def food_handler():
     cost = 0
     while True:
@@ -55,7 +55,7 @@ def food_handler():
         except ValueError:
             print("Lựa chọn không hợp lệ ! Vui lòng chọn lại !")  
 
-#Hàm xử lý nước uống
+#Handling beverage
 def drink_handler():
     cost = 0
     while True:
@@ -98,7 +98,7 @@ def drink_handler():
         except ValueError:
             print("Lựa chọn không hợp lệ ! Vui lòng chọn lại !") 
 
-#Hàm xử lý món snack
+#Handling snack
 def snack_handler():
     cost = 0
     while True:
@@ -141,7 +141,7 @@ def snack_handler():
         except ValueError:
             print("Lựa chọn không hợp lệ ! Vui lòng chọn lại !")
 
-#Hàm Formatting (Chỉ có hàm này là phải nhờ AI)
+#Hàm Formatting (I have to ask AI for this one because Python string formatting is something new to me)
 def bill_format():
     # --- Configuration ---
     W_ITEM = 35    # Width for Item Name + Quantity column
@@ -203,9 +203,9 @@ def bill_format():
     print(f"{'TỔNG CỘNG THANH TOÁN:':<{W_ITEM}}{total_str:>{W_PRICE}}")
     print("".center(W_LINE, '='))
 
-# Hàm main        
+#Main        
 def main():
-    print("==================Tiệm Ministop xin chào quý khách !==================")
+    print("==================Cửa hàng tiện lợi xin chào quý khách !==================")
     while True:
         print("Quý khách muốn mua gì:\n-----------------\n 1.Đồ ăn[1]\n 2.Đồ ăn nhẹ[2]\n 3.Đồ uống[3]\n-----------------")
         n = int(input("Nhấn phím [1], [2], [3] để lựa chọn, Nhấn phím [0] để thoát: "))
@@ -221,4 +221,5 @@ def main():
             print("Lựa chọn không hợp lệ ! Vui lòng chọn lại !")
     bill_format()
     print("Cảm ơn quý khách !")
+
 main()
